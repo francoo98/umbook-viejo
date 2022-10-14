@@ -12,28 +12,27 @@ application {
 }
 
 entity User {
-	username String,
-	password String,
-	email String,
-    creacion LocalDate,
-    id Int
+    id Integer
+	username String
+	password String
+	email String
+    creacion Date
 }
 
 entity Post {
-	id Int
+	id Integer
 	title String
 	contents String
 }
 
 relationship ManyToMany{
-	User to User
+	User{follows} to User{followedBy}
 }
 
 relationship OneToMany {
-	User to Post
+	User{created} to Post{createdBy}
 }
 
 relationship ManyToMany {
-	Post to User
+	Post{like} to User{likes}
 }
-    
