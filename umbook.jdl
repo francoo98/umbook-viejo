@@ -1,0 +1,39 @@
+
+application {
+  config {
+    baseName umbook,
+    applicationType monolith,
+    packageName um.isa.umbook,
+    authenticationType jwt,
+    prodDatabaseType mariadb,
+    clientFramework react
+  }
+  entities *
+}
+
+entity User {
+	username String,
+	password String,
+	email String,
+    creacion Date,
+    id Int
+}
+
+entity Post {
+	id Int
+	title String
+	contents String
+}
+
+relationship ManyToMany{
+	User to User
+}
+
+relationship OneToMany {
+	User to Post
+}
+
+relationship ManyToMany {
+	Post to User
+}
+    
