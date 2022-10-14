@@ -16,7 +16,7 @@ entity User {
 	username String
 	password String
 	email String
-    creacion Date
+    creacion LocalDate
 }
 
 entity Post {
