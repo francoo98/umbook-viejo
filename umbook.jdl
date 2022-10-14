@@ -11,8 +11,8 @@ application {
   entities *
 }
 
-entity User {
-    id Integer
+entity Profile {
+    id Long
 	username String
 	password String
 	email String
@@ -20,19 +20,23 @@ entity User {
 }
 
 entity Post {
-	id Integer
+	id Long
 	title String
 	contents String
 }
 
 relationship ManyToMany{
-	User{follows} to User{followedBy}
+	Profile{follows} to Profile{followedBy}
 }
 
 relationship OneToMany {
-	User{created} to Post{createdBy}
+	Profile{created} to Post{createdBy}
 }
 
 relationship ManyToMany {
-	Post{like} to User{likes}
+	Post{like} to Profile{likes}
+}
+
+relationship OneToOne {
+  Profile{ownedBy} to User{Owns}
 }
