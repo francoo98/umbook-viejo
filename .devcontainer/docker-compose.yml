@@ -28,8 +28,8 @@ services:
       networks:
         - umbook-backend-dev
       volumes:
-        - ~/ingenieria-software-aplicada/umbook:/home/jhipster/app
-        - ~/ingenieria-software-aplicada/umbook/.m2:/home/jhipster/.m2
+        - ~/facultad/ingenieria-software-aplicada/umbook:/home/jhipster/app
+        - ~/facultad/ingenieria-software-aplicada/umbook/.m2:/home/jhipster/app/.m2
 
 networks:
   umbook-backend-dev:

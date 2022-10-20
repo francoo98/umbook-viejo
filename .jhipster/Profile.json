@@ -1,0 +1,71 @@
+{
+  "applications": ["umbook"],
+  "changelogDate": "20221020145008",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "profile",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "username",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creacion",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Profile",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "owns",
+      "ownerSide": true,
+      "relationshipName": "ownedBy",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "post",
+      "otherEntityRelationshipName": "createdBy",
+      "relationshipName": "created",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "followedBy",
+      "ownerSide": true,
+      "relationshipName": "follows",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "follows",
+      "ownerSide": false,
+      "relationshipName": "followedBy",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "post",
+      "otherEntityRelationshipName": "like",
+      "ownerSide": false,
+      "relationshipName": "likes",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}
