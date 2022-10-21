@@ -1,0 +1,42 @@
+{
+  "applications": ["umbook"],
+  "changelogDate": "20221020145108",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "post",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contents",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Post",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "likes",
+      "ownerSide": true,
+      "relationshipName": "like",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "created",
+      "relationshipName": "createdBy",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
