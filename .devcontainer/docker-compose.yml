@@ -21,6 +21,7 @@ services:
       restart: unless-stopped
       depends_on:
         - umbook-db
+        - umbook-elk
       ports:
         - '8080:8080'
         - '9000:9000'
@@ -28,9 +29,21 @@ services:
       networks:
         - umbook-backend-dev
       volumes:
-        - ~/facultad/ingenieria-software-aplicada/umbook:/home/jhipster/app
-        - ~/facultad/ingenieria-software-aplicada/umbook/.m2:/home/jhipster/app/.m2
+        - ~/Documents/facultad/ingenieria-software-aplicada/umbook:/home/jhipster/app
+        - ~/Documents/facultad/ingenieria-software-aplicada/umbook/.m2:/home/jhipster/app/.m2
 
+    umbook-elk:
+      image: sebp/elk
+      container_name: umbook-elk-dev
+      restart: unless-stopped
+      ports:
+        - '5601:5601'
+        - '9200:9200'
+        - '5044:5044'
+        - '5000:5000'
+      networks:
+        - umbook-backend-dev
+    
 networks:
   umbook-backend-dev:
     driver: 'bridge'
